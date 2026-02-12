@@ -78,30 +78,39 @@ function handleOrientation(event) {
 
 // Request permission for iOS 13+
 function requestGyroPermission() {
+    const prompt = document.getElementById('gyro-prompt');
+
     if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
         DeviceOrientationEvent.requestPermission()
             .then(response => {
                 if (response === 'granted') {
                     window.addEventListener('deviceorientation', handleOrientation);
-                    document.getElementById('gyro-prompt').style.display = 'none';
+                    if (prompt) prompt.style.display = 'none';
+                } else {
+                    alert('Motion permission denied. Please refresh and allow to see effects.');
+                    if (prompt) prompt.style.display = 'none';
                 }
             })
-            .catch(console.error);
+            .catch(err => {
+                console.error(err);
+                if (prompt) prompt.style.display = 'none';
+            });
     } else {
-        // Non-iOS or older devices
+        // Non-iOS or older devices (usually don't need permission)
         window.addEventListener('deviceorientation', handleOrientation);
+        if (prompt) prompt.style.display = 'none';
     }
 }
 
+// Global listener for the prompt
 window.addEventListener('DOMContentLoaded', () => {
     const prompt = document.getElementById('gyro-prompt');
     if (prompt) {
         prompt.addEventListener('click', requestGyroPermission);
-
-        // Hide prompt if not on a touch device or if it's already functional (auto-detection attempt)
-        if (!('ontouchstart' in window)) {
-            prompt.style.display = 'none';
-        }
+        prompt.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Prevent double trigger
+            requestGyroPermission();
+        }, { passive: false });
     }
 });
 

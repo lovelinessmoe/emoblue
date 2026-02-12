@@ -16,7 +16,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("https://grains.glitch.me/noise.png");
+    background-image: url("/noise.png");
     opacity: 0.05;
     z-index: 1000;
     pointer-events: none;
@@ -153,6 +153,8 @@ canvas {
 
 /* Gyro Prompt for Mobile */
 .gyro-prompt {
+    display: none;
+    /* Hidden by default */
     position: fixed;
     bottom: 30px;
     left: 50%;
@@ -169,6 +171,16 @@ canvas {
     cursor: pointer;
     backdrop-filter: blur(10px);
     box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Only show on touch devices or small screens */
+@media (max-width: 768px),
+(pointer: coarse) {
+    .gyro-prompt {
+        display: block;
+    }
 }
 
 @media (max-width: 768px) {
