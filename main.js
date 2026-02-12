@@ -68,12 +68,10 @@ window.addEventListener('mousemove', (e) => {
 
 // Device Orientation (Gyroscope)
 function handleOrientation(event) {
-    if (event.beta !== null && event.gamma !== null) {
-        // Map beta (-180 to 180) and gamma (-90 to 90) to a reasonable range
-        // beta: tilt front-to-back, gamma: tilt left-to-right
-        mouseX = event.gamma / 20;
-        mouseY = (event.beta - 45) / 20; // Subtracting 45 for a natural holding angle
-    }
+    // Increased intensity: Divided by 10 instead of 20 for double the range
+    // beta: tilt front-to-back, gamma: tilt left-to-right
+    mouseX = event.gamma / 10;
+    mouseY = (event.beta - 45) / 10;
 }
 
 // Request permission for iOS 13+

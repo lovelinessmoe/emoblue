@@ -207,6 +207,15 @@ canvas {
     transition: opacity 0.3s ease-in-out;
 }
 
+@media (max-width: 768px),
+(pointer: coarse) {
+
+    .cursor-dot,
+    .cursor-outline {
+        display: none;
+    }
+}
+
 .cursor-dot {
     width: 8px;
     height: 8px;
