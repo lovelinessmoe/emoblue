@@ -248,6 +248,12 @@ const musicData = [
         artist: "别网恋",
         cover: "https://oss.ashes.vip/emo/%E5%88%AB%E7%BD%91%E6%81%8B%20-%20%E4%BB%8A%E6%99%9A%E6%9C%88%E8%89%B2%E7%9C%9F%E7%BE%8E%20%E9%A3%8E%E4%B9%9F%E6%BA%AB%E6%9F%94.jpg!p50",
         audio: "https://oss.ashes.vip/emo/%E5%88%AB%E7%BD%91%E6%81%8B%20-%20%E4%BB%8A%E6%99%9A%E6%9C%88%E8%89%B2%E7%9C%9F%E7%BE%8E%20%E9%A3%8E%E4%B9%9F%E6%BA%AB%E6%9F%94.mp3"
+    },
+    {
+        title: "Landing Guy",
+        artist: "刘昊霖kidult.",
+        cover: "https://oss.ashes.vip/emo/%E5%88%98%E6%98%8A%E9%9C%96kidult.%20-%20Landing%20Guy.jpg!p50",
+        audio: "https://oss.ashes.vip/emo/%E5%88%98%E6%98%8A%E9%9C%96kidult.%20-%20Landing%20Guy.mp3"
     }
 ];
 
