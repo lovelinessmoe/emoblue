@@ -309,6 +309,17 @@ function loadTrack(index) {
     document.querySelectorAll('.music-item').forEach((item, i) => {
         item.classList.toggle('active', i === index);
     });
+
+    // update media session metadata for connected devices
+    if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+            title: track.title,
+            artist: track.artist,
+            artwork: [
+                { src: track.cover, sizes: '500x500', type: 'image/jpeg' }
+            ]
+        });
+    }
 }
 
 // Play/Pause
@@ -391,6 +402,13 @@ progressBar.addEventListener('click', setProgress);
 renderMusicGrid();
 loadTrack(0); // 默认加载第一首歌
 
+// set up Media Session action handlers so devices can control playback
+if ('mediaSession' in navigator) {
+    navigator.mediaSession.setActionHandler('play', playTrack);
+    navigator.mediaSession.setActionHandler('pause', pauseTrack);
+    navigator.mediaSession.setActionHandler('previoustrack', prevTrack);
+    navigator.mediaSession.setActionHandler('nexttrack', nextTrack);
+}
 // Draggable player
 let isDragging = false;
 let currentX;
