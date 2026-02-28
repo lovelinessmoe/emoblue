@@ -13,6 +13,14 @@
 
 <body>
     <div id="app">
+        <!-- side navigation links -->
+        <nav id="side-nav">
+            <ul>
+                <li><a href="#hero" id="link-emo" class="nav-link">EMO</a></li>
+                <li><a href="#music" id="link-track" class="nav-link">TRACK</a></li>
+                <li><a href="#lyrics" id="link-lyrics" class="nav-link">LYRICS</a></li>
+            </ul>
+        </nav>
         <canvas id="bg-canvas"></canvas>
 
         <main>
@@ -33,6 +41,15 @@
                     <h2 class="section-title">Sound Waves</h2>
                     <div class="music-grid" id="music-grid">
                         <!-- Music items will be added here via JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <section id="lyrics" class="lyrics-section">
+                <div class="lyrics-container">
+                    <h2 class="section-title">Lyrics</h2>
+                    <div id="lyrics-content">
+                        <!-- Lyrics for current track will appear here -->
                     </div>
                 </div>
             </section>
