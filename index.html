@@ -21,6 +21,19 @@
                     <h1 class="glitch-text" data-text="EMO.BLUE">EMO.BLUE</h1>
                     <div class="divider"></div>
                     <p class="subtitle">Deeply Digital</p>
+                    <div class="scroll-indicator">
+                        <span>Scroll Down</span>
+                        <div class="scroll-arrow"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="music" class="music-section">
+                <div class="music-container">
+                    <h2 class="section-title">Sound Waves</h2>
+                    <div class="music-grid" id="music-grid">
+                        <!-- Music items will be added here via JavaScript -->
+                    </div>
                 </div>
             </section>
         </main>
@@ -31,6 +44,42 @@
 
         <div class="cursor-dot"></div>
         <div class="cursor-outline"></div>
+
+        <!-- Floating Music Player -->
+        <div class="music-player floating-player" id="music-player">
+            <div class="player-drag-handle" id="drag-handle">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                    <path d="M3 15h18v-2H3v2zm0 4h18v-2H3v2zm0-8h18V9H3v2zm0-6v2h18V5H3z"/>
+                </svg>
+            </div>
+            <div class="player-info">
+                <img src="" alt="Album Cover" class="player-cover" id="player-cover">
+                <div class="player-text">
+                    <h3 id="player-title">Select a track</h3>
+                    <p id="player-artist">—</p>
+                </div>
+            </div>
+            <div class="player-controls">
+                <button class="control-btn" id="prev-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+                </button>
+                <button class="control-btn play-btn" id="play-btn">
+                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M6 4h4v16H6zm8 0h4v16h-4z"/></svg>
+                </button>
+                <button class="control-btn" id="next-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+                </button>
+            </div>
+            <div class="player-progress">
+                <span class="time" id="current-time">0:00</span>
+                <div class="progress-bar" id="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <span class="time" id="duration">0:00</span>
+            </div>
+            <audio id="audio-player"></audio>
+        </div>
     </div>
     <script type="module" src="/main.js"></script>
 </body>
